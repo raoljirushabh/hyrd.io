@@ -1,6 +1,6 @@
 #**✦ Hyrd**
 
-Hyrd is an AI-powered job application assistant that tailors your resume and cover letter to any job description — strategically, subtly, and in a way that reads like a human wrote it.
+Hyrd is an AI-powered job application assistant that tailors your resume and cover letter to any job description - strategically, subtly, and in a way that reads like a human wrote it.
 It targets maximum ATS compatibility while keeping your authentic voice intact. No robotic phrasing. No obvious AI tells. Just a sharp, well-positioned application, every time.
 
 Features:
