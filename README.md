@@ -1,8 +1,10 @@
 #**✦ Hyrd**
+
 Hyrd is an AI-powered job application assistant that tailors your resume and cover letter to any job description — strategically, subtly, and in a way that reads like a human wrote it.
 It targets maximum ATS compatibility while keeping your authentic voice intact. No robotic phrasing. No obvious AI tells. Just a sharp, well-positioned application, every time.
 
 Features:
+
 Resume Tailoring — rewrites your resume to mirror the JD's language, priorities, and keyword structure without sounding forced
 Cover Letter Generation — tone-matched to the company (startup, corporate, creative, or academic) with a natural human voice
 Application Q&A — answers custom application questions in your voice, grounded in your background and the role
@@ -15,6 +17,7 @@ Export Options — copy to clipboard, download as .txt, or download as a formatt
 
 
 Tech Stack: 
+
 Layer --> Technology
 UI Framework --> React 18
 AI --> Anthropic Claude API (claude-sonnet-4)
