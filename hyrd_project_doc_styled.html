@@ -1,0 +1,344 @@
+
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#080b11;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+  .page{max-width:720px;margin:0 auto;padding:3rem 2rem 4rem}
+  .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(108,99,255,.15);border:1px solid rgba(108,99,255,.3);color:#a5b4fc;font-size:11px;padding:4px 12px;border-radius:20px;font-weight:500;margin-bottom:1.5rem;letter-spacing:.04em;text-transform:uppercase}
+  h1.hero{font-size:42px;font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-bottom:.75rem;background:linear-gradient(135deg,#e6edf3 30%,#a5b4fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero-sub{font-size:15px;color:#6e7681;line-height:1.75;max-width:580px}
+  .divider{border:none;border-top:1px solid #161b22;margin:2.5rem 0}
+  .sec-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#484f58;margin-bottom:.6rem}
+  .sec-title{font-size:20px;font-weight:600;margin-bottom:.75rem;letter-spacing:-.02em}
+  .body-text{font-size:14px;line-height:1.8;color:#8b949e;margin-bottom:1rem}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1rem 0}
+  .three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:1rem 0}
+  .card{background:#0d1117;border:1px solid #161b22;border-radius:10px;padding:1rem 1.1rem}
+  .card-title{font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:5px}
+  .card-body{font-size:12px;color:#6e7681;line-height:1.65}
+  .stat-num{font-size:28px;font-weight:700;color:#e6edf3;line-height:1}
+  .stat-desc{font-size:11px;color:#484f58;margin-top:5px;line-height:1.5}
+  .need-card{background:#0d1117;border:1px solid #161b22;border-radius:10px;padding:.9rem 1.1rem;display:flex;gap:12px;margin-bottom:10px}
+  .need-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+  .need-title{font-size:13px;font-weight:600;color:#e6edf3;margin-bottom:4px}
+  .need-body{font-size:12px;color:#6e7681;line-height:1.6}
+  .quote-block{border-left:2px solid #6c63ff;padding:.75rem 1rem;margin:1.5rem 0;background:rgba(108,99,255,.06);border-radius:0 8px 8px 0}
+  .quote-text{font-size:13px;color:#a5b4fc;line-height:1.7;font-style:italic}
+  .quote-attr{font-size:11px;color:#484f58;margin-top:6px}
+  .stack-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #161b22}
+  .stack-row:last-child{border-bottom:none}
+  .stack-lbl{font-size:12px;color:#484f58;width:130px;flex-shrink:0}
+  .stack-val{font-size:12px;color:#e6edf3;font-weight:500}
+  .tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:600}
+  .tag-green{background:rgba(63,185,80,.12);color:#3fb950;border:1px solid rgba(63,185,80,.2)}
+  .tag-blue{background:rgba(56,139,253,.12);color:#58a6ff;border:1px solid rgba(56,139,253,.2)}
+  .tag-purple{background:rgba(108,99,255,.12);color:#a5b4fc;border:1px solid rgba(108,99,255,.2)}
+
+  /* APP PREVIEW */
+  .preview-wrap{background:#080b11;border:1px solid #21262d;border-radius:14px;overflow:hidden;margin:1.25rem 0}
+  .app-header{background:linear-gradient(135deg,#0d1020,#080b11);border-bottom:1px solid #161b22;padding:14px 20px;display:flex;align-items:center;gap:12px}
+  .app-logo{width:32px;height:32px;background:linear-gradient(135deg,#6c63ff,#a855f7);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+  .app-name{font-size:15px;font-weight:700;letter-spacing:-.02em;background:linear-gradient(135deg,#e6edf3,#a5b4fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .app-tagline{font-size:10px;color:#484f58;margin-top:1px}
+  .app-body{padding:18px 20px}
+  .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  .input-card{background:#0d1117;border:1px solid #21262d;border-radius:10px;padding:12px}
+  .input-label{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#484f58;margin-bottom:8px}
+  .textarea-mock{background:#080b11;border:1px solid #21262d;border-radius:7px;padding:8px;display:flex;flex-direction:column;gap:4px;min-height:90px}
+  .mock-line{height:6px;border-radius:3px;background:#161b22}
+  .toggle-bar{display:flex;background:#080b11;border-radius:6px;padding:2px;gap:2px;margin-bottom:8px}
+  .tog-btn{flex:1;padding:4px 6px;border-radius:5px;font-size:9px;text-align:center;color:#484f58}
+  .tog-btn.active{background:#6c63ff;color:#fff;font-weight:600}
+  .q-card{background:#0d1117;border:1px solid #21262d;border-radius:10px;padding:12px;margin-bottom:12px}
+  .q-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .q-label-block{}
+  .q-label{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#484f58}
+  .q-sublabel{font-size:9px;color:#30363d;margin-top:2px}
+  .q-add-btn{font-size:9px;padding:3px 10px;border-radius:6px;border:1px dashed #6c63ff;background:rgba(108,99,255,.08);color:#a5b4fc}
+  .q-input-mock{background:#080b11;border:1px solid #21262d;border-radius:6px;padding:7px 10px;font-size:9px;color:#30363d}
+  .gen-btn{width:100%;padding:10px;background:linear-gradient(135deg,#6c63ff,#a855f7);border:none;border-radius:8px;color:#fff;font-size:11px;font-weight:600;text-align:center;margin-bottom:16px;letter-spacing:.02em}
+  .ats-wrap{background:linear-gradient(135deg,#0d1020,#0d1117);border:1px solid #21262d;border-radius:10px;padding:14px 16px;display:flex;align-items:center;gap:18px;margin-bottom:12px}
+  .gauge-wrap{position:relative;width:72px;height:72px;flex-shrink:0}
+  .gauge-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .gauge-num{font-size:18px;font-weight:700;color:#3fb950;line-height:1}
+  .gauge-lbl{font-size:7px;color:#484f58;text-transform:uppercase;letter-spacing:.05em;margin-top:1px}
+  .ats-right{flex:1}
+  .ats-head{font-size:12px;font-weight:600;color:#e6edf3;margin-bottom:2px}
+  .ats-sub{font-size:10px;color:#6e7681;margin-bottom:10px;line-height:1.5}
+  .ats-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+  .ats-bar-lbl{font-size:9px;color:#6e7681;width:100px;flex-shrink:0}
+  .ats-bar-track{flex:1;height:4px;background:#21262d;border-radius:2px;overflow:hidden}
+  .ats-bar-fill{height:100%;border-radius:2px}
+  .ats-bar-pct{font-size:9px;color:#e6edf3;width:26px;text-align:right;font-weight:500}
+  .kw-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+  .kw-tag{padding:2px 7px;border-radius:12px;font-size:9px;font-weight:500;background:rgba(108,99,255,.12);border:1px solid rgba(108,99,255,.25);color:#a5b4fc}
+  .tabs-bar{display:flex;gap:2px}
+  .tab-btn{padding:6px 14px;border:1px solid #21262d;border-bottom:none;background:#080b11;color:#484f58;border-radius:6px 6px 0 0;font-size:10px;font-weight:500}
+  .tab-btn.active{background:#0d1117;color:#e6edf3;border-color:#21262d}
+  .tab-body{background:#0d1117;border:1px solid #21262d;border-radius:0 8px 8px 8px;padding:12px}
+  .tab-actions{display:flex;gap:6px;justify-content:flex-end;margin-bottom:10px}
+  .tab-action-btn{padding:4px 10px;border-radius:5px;border:1px solid #21262d;background:#080b11;color:#8b949e;font-size:9px}
+  .output-text{background:#080b11;border:1px solid #21262d;border-radius:6px;padding:10px;display:flex;flex-direction:column;gap:4px}
+
+  .outcome-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:1rem 0}
+  .outcome-card{background:#0d1117;border:1px solid #161b22;border-radius:10px;padding:.9rem 1rem}
+  .outcome-num{font-size:24px;font-weight:700;color:#e6edf3}
+  .outcome-desc{font-size:11px;color:#484f58;margin-top:3px;line-height:1.5}
+  .gh-row{display:flex;align-items:center;gap:10px;padding:.75rem 0;border-bottom:1px solid #161b22}
+  .gh-row:last-child{border-bottom:none}
+  .gh-icon{width:30px;height:30px;border-radius:7px;background:#080b11;border:1px solid #161b22;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+  .gh-title{font-size:12px;font-weight:600;color:#e6edf3}
+  .gh-sub{font-size:11px;color:#484f58}
+  .code-block{background:#0d1117;border:1px solid #161b22;border-radius:8px;padding:.9rem 1rem;font-size:11px;font-family:'SF Mono','Fira Code',monospace;color:#6e7681;line-height:2.1;margin:1rem 0}
+  .code-block span{color:#a5b4fc}
+</style>
+
+<div class="page">
+
+  <div class="badge">✦ Project document</div>
+  <h1 class="hero">Hyrd.me</h1>
+  <p class="hero-sub">An open-source, AI-powered job application assistant that rewrites your resume, writes your cover letter, and answers application questions - in a way that sounds like you wrote it, not a machine.
+  <br><i>NOTE: It does NOT invent keywords, bullets or examples on the resume. It simply optimizes it.</i>
+  </p>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">The problem</div>
+  <div class="sec-title">Job applications are broken</div>
+  <p class="body-text">Most people send the same resume to every job. The ones who do tailor it usually end up with something that reads like it was written by a corporate chatbot. ATS systems reject qualified candidates before a human ever reads their name, and the tools built to help have made the writing worse.</p>
+  <p class="body-text">Hyrd was built to fix that. Not by gaming the system, but by doing what a great career coach would do: taking what you have, understanding what the role actually needs, and finding the honest overlap between the two - written in plain, direct human language.</p>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">Why this exists</div>
+  <div class="sec-title">The need for Hyrd</div>
+  <p class="body-text">The job market has quietly become a numbers game that punishes good candidates. Companies receive hundreds of applications for a single opening. Most never get read by a person. The first filter is software, and that software is looking for specific words, not talent.</p>
+  <p class="body-text">At the same time, the advice candidates get has not kept up. Career coaches cost hundreds of dollars per session. Resume writing services churn out templates. AI tools produce output so obviously machine-written that recruiters have started flagging it on sight.</p>
+
+  <div class="three-col" style="margin:1.25rem 0">
+    <div class="card">
+      <div class="stat-num">75%</div>
+      <div class="stat-desc">of resumes rejected by ATS before a recruiter sees them</div>
+    </div>
+    <div class="card">
+      <div class="stat-num">7s</div>
+      <div class="stat-desc">average time a recruiter spends on a resume that makes it through</div>
+    </div>
+    <div class="card">
+      <div class="stat-num">250+</div>
+      <div class="stat-desc">applications received on average per corporate job posting</div>
+    </div>
+  </div>
+
+  <div class="need-card">
+    <div class="need-icon" style="background:rgba(248,81,73,.1)">🤖</div>
+    <div><div class="need-title">Existing AI tools make it worse</div><div class="need-body">ChatGPT and similar tools produce resumes full of em dashes, "leveraged synergies", and uniform bullet structures. Recruiters and AI detectors both flag this instantly. A resume that screams AI-written is often worse than the original.</div></div>
+  </div>
+  <div class="need-card">
+    <div class="need-icon" style="background:rgba(210,153,34,.1)">💸</div>
+    <div><div class="need-title">Professional help is out of reach for most people</div><div class="need-body">A good resume writer charges between $300 and $1,000. Career coaches charge by the hour. Most job seekers, especially early-career candidates and people between jobs, simply cannot afford that.</div></div>
+  </div>
+  <div class="need-card">
+    <div class="need-icon" style="background:rgba(63,185,80,.1)">🎯</div>
+    <div><div class="need-title">Tailoring works, but nobody has time to do it right</div><div class="need-body">Tailored applications significantly outperform generic ones. But doing it properly for a single application takes two to three hours. Applying to ten roles means twenty to thirty hours of work before a single interview. That is not realistic.</div></div>
+  </div>
+  <div class="need-card">
+    <div class="need-icon" style="background:rgba(108,99,255,.1)">🔍</div>
+    <div><div class="need-title">Candidates do not know what ATS systems are looking for</div><div class="need-body">Most people have never seen an ATS score for their own resume. They do not know which keywords they are missing, which sections carry the most weight, or why a role they are qualified for keeps going nowhere.</div></div>
+  </div>
+
+  <div class="quote-block">
+    <div class="quote-text">The resume is not a biography. It is a relevance argument. Every word should be doing work to answer one question: why is this person the right fit for this specific role.</div>
+    <div class="quote-attr">The principle behind Hyrd</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">Objective</div>
+  <div class="sec-title">What Hyrd is trying to do</div>
+  <div class="two-col">
+    <div class="card"><div class="card-title">Maximum ATS match</div><div class="card-body">Every keyword, responsibility, and requirement in the job description gets addressed somewhere in the resume. The AI audits coverage line by line and fills gaps.</div></div>
+    <div class="card"><div class="card-title">Zero AI tells</div><div class="card-body">No em dashes. No "Furthermore". No "Leveraged synergies". A long banned-words list is baked into every generation. Output has to pass both human readers and AI detectors.</div></div>
+    <div class="card"><div class="card-title">STAR format, invisibly</div><div class="card-body">New bullets are written in Situation/Action/Result format but structured so the format disappears. They read as natural recollections, not templates someone filled in.</div></div>
+    <div class="card"><div class="card-title">Application Q&A</div><div class="card-body">Paste in any application questions and get answers grounded in your actual background and the specific role, not generic interview-prep boilerplate.</div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">App preview</div>
+  <div class="sec-title">What it looks like</div>
+
+  <div class="preview-wrap">
+    <div class="app-header">
+      <div class="app-logo">✦</div>
+      <div>
+        <div class="app-name">Hyrd</div>
+        <div class="app-tagline">Tailor your resume and cover letter - naturally, strategically, undetectably.</div>
+      </div>
+    </div>
+    <div class="app-body">
+
+      <div class="input-grid">
+        <div class="input-card">
+          <div class="input-label">📋 Job Description</div>
+          <div class="textarea-mock">
+            <div class="mock-line" style="width:92%"></div>
+            <div class="mock-line" style="width:78%"></div>
+            <div class="mock-line" style="width:86%"></div>
+            <div class="mock-line" style="width:65%"></div>
+            <div class="mock-line" style="width:82%"></div>
+            <div class="mock-line" style="width:54%"></div>
+            <div class="mock-line" style="width:74%"></div>
+          </div>
+        </div>
+        <div class="input-card">
+          <div class="input-label">📄 Your Resume</div>
+          <div class="toggle-bar">
+            <div class="tog-btn active">✏️ Paste Text</div>
+            <div class="tog-btn">📎 Upload File</div>
+          </div>
+          <div class="textarea-mock">
+            <div class="mock-line" style="width:88%"></div>
+            <div class="mock-line" style="width:72%"></div>
+            <div class="mock-line" style="width:90%"></div>
+            <div class="mock-line" style="width:58%"></div>
+            <div class="mock-line" style="width:76%"></div>
+            <div class="mock-line" style="width:66%"></div>
+            <div class="mock-line" style="width:80%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-card">
+        <div class="q-row">
+          <div class="q-label-block">
+            <div class="q-label">❓ Application Questions <span style="color:#30363d;font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></div>
+            <div class="q-sublabel">Add questions from the application form - "Why us?", behavioural prompts, etc.</div>
+          </div>
+          <div class="q-add-btn">+ Add Question</div>
+        </div>
+        <div class="q-input-mock">Question 1 - e.g. "Why do you want to work here?"</div>
+      </div>
+
+      <div class="gen-btn">✦  Tailor My Resume &amp; Generate Cover Letter</div>
+
+      <div class="ats-wrap">
+        <div class="gauge-wrap">
+          <svg width="72" height="72" viewBox="0 0 72 72" style="transform:rotate(-90deg)">
+            <circle cx="36" cy="36" r="29" fill="none" stroke="#21262d" stroke-width="7"/>
+            <circle cx="36" cy="36" r="29" fill="none" stroke="#3fb950" stroke-width="7" stroke-linecap="round" stroke-dasharray="182.2" stroke-dashoffset="9"/>
+          </svg>
+          <div class="gauge-center">
+            <div class="gauge-num">96</div>
+            <div class="gauge-lbl">ATS Score</div>
+          </div>
+        </div>
+        <div class="ats-right">
+          <div class="ats-head">Strong Match Confidence</div>
+          <div class="ats-sub">Resume aligns closely with all primary JD requirements and keyword clusters.</div>
+          <div class="ats-bar-row"><div class="ats-bar-lbl">Keyword Match</div><div class="ats-bar-track"><div class="ats-bar-fill" style="width:96%;background:#3fb950"></div></div><div class="ats-bar-pct">96%</div></div>
+          <div class="ats-bar-row"><div class="ats-bar-lbl">Skills Alignment</div><div class="ats-bar-track"><div class="ats-bar-fill" style="width:94%;background:#3fb950"></div></div><div class="ats-bar-pct">94%</div></div>
+          <div class="ats-bar-row"><div class="ats-bar-lbl">Experience Relevance</div><div class="ats-bar-track"><div class="ats-bar-fill" style="width:91%;background:#3fb950"></div></div><div class="ats-bar-pct">91%</div></div>
+          <div class="ats-bar-row"><div class="ats-bar-lbl">Formatting &amp; Clarity</div><div class="ats-bar-track"><div class="ats-bar-fill" style="width:98%;background:#3fb950"></div></div><div class="ats-bar-pct">98%</div></div>
+          <div class="kw-row">
+            <span class="kw-tag">+ stakeholder management</span>
+            <span class="kw-tag">+ cross-functional</span>
+            <span class="kw-tag">+ product lifecycle</span>
+            <span class="kw-tag">+ agile delivery</span>
+            <span class="kw-tag">+ OKRs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs-bar">
+        <div class="tab-btn active">📄 Tailored Resume</div>
+        <div class="tab-btn">✉️ Cover Letter</div>
+        <div class="tab-btn">❓ Application Q&A</div>
+      </div>
+      <div class="tab-body">
+        <div class="tab-actions">
+          <div class="tab-action-btn">📋 Copy</div>
+          <div class="tab-action-btn">⬇️ .txt</div>
+          <div class="tab-action-btn">📝 .docx</div>
+        </div>
+        <div class="output-text">
+          <div class="mock-line" style="width:55%;background:#21262d;height:8px"></div>
+          <div class="mock-line" style="width:72%;background:#1a1f29;height:6px;margin-top:4px"></div>
+          <div class="mock-line" style="width:68%;background:#1a1f29;height:6px"></div>
+          <div class="mock-line" style="width:80%;background:#1a1f29;height:6px"></div>
+          <div class="mock-line" style="width:60%;background:#1a1f29;height:6px"></div>
+          <div style="height:8px"></div>
+          <div class="mock-line" style="width:40%;background:#21262d;height:7px"></div>
+          <div class="mock-line" style="width:88%;background:#1a1f29;height:6px;margin-top:4px"></div>
+          <div class="mock-line" style="width:76%;background:#1a1f29;height:6px"></div>
+          <div class="mock-line" style="width:83%;background:#1a1f29;height:6px"></div>
+          <div class="mock-line" style="width:91%;background:#1a1f29;height:6px"></div>
+          <div class="mock-line" style="width:70%;background:#1a1f29;height:6px"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">Scope</div>
+  <div class="sec-title">What is and is not in scope</div>
+  <div class="two-col">
+    <div class="card"><div class="card-title">In scope</div><div class="card-body">Resume tailoring, cover letter generation, application Q&A, ATS scoring, PDF and DOCX upload, TXT and DOCX export, keyword audit, STAR bullet generation, grammar and consistency checking.</div></div>
+    <div class="card"><div class="card-title">Out of scope</div><div class="card-body">Job searching, application tracking, interview scheduling, LinkedIn integration, and fabricating credentials or experience. Hyrd enhances what is already there. It does not invent.</div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">Tech stack</div>
+  <div class="sec-title">How it is built</div>
+  <div class="card" style="margin-bottom:1rem">
+    <div class="stack-row"><div class="stack-lbl">UI framework</div><div class="stack-val">React 18</div><span class="tag tag-blue" style="margin-left:auto">Frontend</span></div>
+    <div class="stack-row"><div class="stack-lbl">AI model</div><div class="stack-val">Anthropic Claude (claude-sonnet-4)</div><span class="tag tag-purple" style="margin-left:auto">AI</span></div>
+    <div class="stack-row"><div class="stack-lbl">PDF parsing</div><div class="stack-val">PDF.js by Mozilla</div><span class="tag tag-green" style="margin-left:auto">Library</span></div>
+    <div class="stack-row"><div class="stack-lbl">DOCX parsing</div><div class="stack-val">Mammoth.js</div><span class="tag tag-green" style="margin-left:auto">Library</span></div>
+    <div class="stack-row"><div class="stack-lbl">DOCX export</div><div class="stack-val">docx.js with custom font hierarchy</div><span class="tag tag-green" style="margin-left:auto">Library</span></div>
+    <div class="stack-row"><div class="stack-lbl">Styling</div><div class="stack-val">Inline styles, no CSS framework</div><span class="tag tag-blue" style="margin-left:auto">Frontend</span></div>
+    <div class="stack-row"><div class="stack-lbl">API proxy</div><div class="stack-val">Vercel serverless function</div><span class="tag tag-purple" style="margin-left:auto">Backend</span></div>
+    <div class="stack-row"><div class="stack-lbl">Hosting</div><div class="stack-val">Vercel (free tier)</div><span class="tag tag-green" style="margin-left:auto">Infra</span></div>
+  </div>
+  <p class="body-text">There are no databases, no user accounts, and no stored data. Everything runs in memory for the duration of a session. The only external call is to the Anthropic API, routed through a serverless proxy so the API key never reaches the browser.</p>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">Outcome</div>
+  <div class="sec-title">What it produces</div>
+  <div class="outcome-grid">
+    <div class="outcome-card"><div class="outcome-num">95+</div><div class="outcome-desc">Average ATS score on tailored resumes</div></div>
+    <div class="outcome-card"><div class="outcome-num">3</div><div class="outcome-desc">Output formats: on-screen, TXT, and DOCX</div></div>
+    <div class="outcome-card"><div class="outcome-num">0</div><div class="outcome-desc">AI writing tells permitted in output</div></div>
+  </div>
+  <p class="body-text">The tailored resume is a clean DOCX with a proper font hierarchy: Calibri 18pt bold for the candidate name, 11pt bold section headers with a rule line underneath, 10pt body text, and native Word bullet formatting. It opens cleanly in Microsoft Word and Google Docs without formatting artifacts.</p>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">Open source</div>
+  <div class="sec-title">Available on GitHub</div>
+  <p class="body-text">Hyrd is fully open source under the MIT license. The entire codebase is a single React component plus a one-file Vercel serverless proxy. There are no proprietary dependencies, no locked APIs beyond Anthropic, and no build-time configuration beyond an environment variable for the API key.</p>
+
+  <div class="card" style="margin-bottom:1rem">
+    <div class="gh-row"><div class="gh-icon">📄</div><div style="flex:1"><div class="gh-title">src/App.js</div><div class="gh-sub">Main React component, all UI and logic</div></div><span class="tag tag-blue">React</span></div>
+    <div class="gh-row"><div class="gh-icon">⚙️</div><div style="flex:1"><div class="gh-title">api/generate.js</div><div class="gh-sub">Vercel serverless proxy for the Anthropic API</div></div><span class="tag tag-green">Node</span></div>
+    <div class="gh-row"><div class="gh-icon">🔧</div><div style="flex:1"><div class="gh-title">vercel.json</div><div class="gh-sub">Routing config for API and SPA fallback</div></div><span class="tag tag-purple">Config</span></div>
+    <div class="gh-row"><div class="gh-icon">📖</div><div style="flex:1"><div class="gh-title">README.md</div><div class="gh-sub">Setup, deployment, and usage documentation</div></div><span class="tag tag-green">Docs</span></div>
+  </div>
+
+  <div class="code-block">
+    <span>git clone</span> https://github.com/YOUR_USERNAME/hyrd<br>
+    <span>cd</span> hyrd<br>
+    <span>npm</span> install<br>
+    <span>npm</span> start
+  </div>
+
+  <p class="body-text">Contributions are welcome. If something about the prompt engineering, the DOCX formatting, or the ATS scoring logic can be improved, open an issue or send a pull request. The goal is for the output to keep getting harder to distinguish from a human who knows what they are doing.</p>
+
+  <div class="divider"></div>
+  <div class="sec-label">License</div>
+  <p class="body-text" style="margin:0">MIT. Free to use, fork, modify, and deploy. The only ask is that you do not use Hyrd to fabricate experience or credentials that do not belong to you.</p>
+
+</div>
